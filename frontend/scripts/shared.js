@@ -1,7 +1,7 @@
 /* Shared JS */
 
 var toggleButton = document.querySelector('.toggle-button');
-var mobileNav = document.querySelector('.mobile-nav'); // For some reason this wasn't working? Ask Tyler
+var mobileNav = document.querySelector('.mobile-nav');
 
 document.querySelector('.header-div').innerHTML = `
 <div class="backdrop"></div>
@@ -24,14 +24,14 @@ document.querySelector('.header-div').innerHTML = `
                     <li class='navbar__categories'>
                         <a href='products.html'>Categories</a>
                         <ul class='categoryDrop'>
-                            <p><a href='products.html'>-Desktops</a></li></p>
-                            <p><a href='products.html'>-Laptops</a></li></p>
-                            <p><a href='products.html'>-Headsets</a></p>
-                            <p id='last'><a href='products.html'>-Mice</a></p>
+                            <p><a href='products.html' onclick="desktopFilter()">-Desktops</a></li></p>
+                            <p><a href='products.html' onclick="laptopFilter()">-Laptops</a></li></p>
+                            <p><a href='products.html' onclick="headsetFilter()">-Headsets</a></p>
+                            <p id='last'><a href='products.html' onclick="mouseFilter()">-Mice</a></p>
                         </ul>
                     </li>
                     <li class='navbar__li'>
-                        <a href='products.html'>All Products</a>
+                        <a href='products.html' onclick="resetLocalStorage()">All Products</a>
                     </li>
                     <li class='navbar__li'>
                         <a href='contactus.html'>Contact Us</a>
@@ -86,8 +86,28 @@ const showList = () => {
     }
 }
 
-const searchItems = () => {
-    if (document.querySelector("#searchBox").value = "%desktop%") {
-        console.log("test")
-    }
+const getSearchResults = () => {
+    var searchText = (document.querySelector('#searchText').value);
+    localStorage.searchText = searchText;
+}
+
+const resetLocalStorage = () => {
+    localStorage.category = "";
+    localStorage.searchText = "";
+}
+
+const desktopFilter = () => {
+    localStorage.category = "Desktop";
+}
+
+const laptopFilter = () => {
+    localStorage.category = "Laptop";
+}
+
+const headsetFilter = () => {
+    localStorage.category = "Headset";
+}
+
+const mouseFilter = () => {
+    localStorage.category = "Mouse";
 }

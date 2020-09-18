@@ -1,3 +1,19 @@
+(function() {
+    console.log(localStorage.searchText)
+    if (localStorage.searchText == "Desktop" || localStorage.category == "Desktop") {
+        document.querySelector("#product-type").value = "desktops"
+    } else if (localStorage.searchText == "Laptop" || localStorage.category == "Laptop") {
+        document.querySelector("#product-type").value = "laptops"
+    } else if (localStorage.searchText == "Headset" || localStorage.category == "Headset") {
+        document.querySelector("#product-type").value = "desktops"
+    } else if (localStorage.searchText == "Mouse" || localStorage.category == "Mouse") {
+        document.querySelector("#product-type").value = "mice"
+    } else {
+        document.querySelector("#product-type").value = "all"
+    }
+})();
+
+
 const filterCategory = () => {
 
     // querySelectorAll is going to return this is an array
@@ -26,3 +42,5 @@ const filterCategory = () => {
         }
     }    
 }
+
+filterCategory();
